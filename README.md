@@ -5,7 +5,9 @@ Download the AutoCORDSv2 folder and run the python file named AutoCORDSv2.py.
 
 A simple usage is "python3 -i "
 
-## help
+## Dependencies
+
+## Argument
 
 options:
 
