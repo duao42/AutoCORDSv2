@@ -14,4 +14,4 @@ Go into that folder and run the following command:
 
 python3 -i 12L_MSA.fasta -t MSA_fasta -cl 20 -pl 30,35 -cct 0.985 -pct 0.985 -pst 0.3 -n 20 --bgfile bg_file.fna
 
-The output can then be seen in the 12L_MSA folder.
+The output can then be seen in the 12L_MSA folder in about 3h.
