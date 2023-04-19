@@ -3,7 +3,6 @@ An automated tool for designing Cas12a crRNA and RPA primers for CORDSv2 (Cas12a
 # Usage
 Download the AutoCORDSv2 folder and run the python file named AutoCORDSv2.py.
 
-## help
 usage: AutoCORDSv2.py [-h] -i Input -t Type [-cl crRNA Length] [-pl the Range of Primer Length] [-cct crRNA Conserve Threshold] [-pct Primer Conserve Threshold]
                       [-pst Primer Specificity Threshold] [-n N] [-range RANGE] [--bgfile BGFILE [BGFILE ...]]
 
