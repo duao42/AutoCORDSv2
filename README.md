@@ -1,7 +1,7 @@
 # AutoCORDSv2
 An automated tool for designing Cas12a crRNA and RPA primers for CORDSv2 (Cas12a-based On-site and Rapid Detection System) Runs on a Linux system.
 # Usage
-Download the AutoCORDSv2 folder and run the python file named AutoCORDSv2.py.
+Download the AutoCORDSv2 folder and run the python file named AutoCORDSv2.py, This process should be completed quickly.
 
 A simple usage is "python3 -i input_alignment.fasta -t MSA_fasta --bgfile background.fasta"
 
@@ -46,6 +46,29 @@ options:
   --bgfile BGFILE [BGFILE ...]
                         Path of background fasta file(one or multiple files separated by spaces) for the Primer or crRNA specificity screening.
                         
+# Demo
+
+## Required files
+
+AutoCORDSv2 code
+
+"12L_MSA.fasta" in the Demo folder
+
+background file that download from "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/003/025/GCF_000003025.6_Sscrofa11.1/GCF_000003025.6_Sscrofa11.1_genomic.fna.gz" and unzip
+
+## Run
+
+Make sure all required files are in the same folder and required dependencies are installed.
+
+Go into that folder and run the following command:
+
+python3 -i 12L_MSA.fasta -t MSA_fasta -cl 20 -pl 30,35 -cct 0.985 -pct 0.985 -pst 0.3 -n 20 --bgfile bg_file.fna
+
+The output can then be seen in the 12L_MSA folder in about 3h.
+
+# Version
+
+1.0.0
 
 # Citations
 
