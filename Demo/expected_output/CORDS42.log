@@ -1,0 +1,13 @@
+2023-04-19 09:53:49,777 INFO arguments: {'i': '12L_MSA.fasta', 't': 'MSA_fasta', 'cl': 20, 'pl': '30,35', 'cct': 0.985, 'pct': 0.985, 'pst': 0.3, 'n': 80, 'range': None, 'bgfile': ['bg_file.fna']}
+2023-04-19 09:53:50,348 INFO Start searching for crRNAs suitable for one-pot RPA reaction.
+2023-04-19 09:53:50,348 INFO Check crRNA‘s conservation, CG content, secondary structure.
+2023-04-19 09:53:50,480 INFO number of conserved potential crRNAs: 11
+2023-04-19 09:53:50,480 INFO Specificity filtering of potential crRNAs, it may takes a long time.
+2023-04-19 09:57:00,040 INFO number of conserved potential & specific crRNAs: 11
+2023-04-19 09:57:00,041 INFO The range of searching primers are [[0, 649]].
+2023-04-19 09:57:00,045 INFO Start searching for primers suitable for one-pot RPA reaction.
+2023-04-19 09:57:00,045 INFO Check primer's conservation, CG content, secondary structure, consecutive CG bases.
+2023-04-19 09:57:00,313 INFO number of conserved potential primers: 261
+2023-04-19 09:57:00,314 INFO Specificity filtering of primers, it may takes a long time.
+2023-04-19 10:22:08,162 INFO number of conserved & specific potential primers: 214
+2023-04-19 10:22:08,174 INFO Total time: 1698.3992674350739
