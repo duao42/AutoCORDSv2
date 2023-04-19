@@ -26,7 +26,7 @@ options:
   --bgfile BGFILE [BGFILE ...]
                         Path of background fasta file(one or multiple files separated by spaces) for the Primer or crRNA specificity screening.
 
-#Citations
+# Citations
 
 Cock, P.J.A. et al. Biopython: freely available Python tools for computational molecular biology and bioinformatics. Bioinformatics 2009 Jun 1; 25(11) 1422-3 https://doi.org/10.1093/bioinformatics/btp163 pmid:19304878
 
