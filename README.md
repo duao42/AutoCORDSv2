@@ -3,7 +3,7 @@ An automated tool for designing Cas12a crRNA and RPA primers for CORDSv2 (Cas12a
 # Usage
 Download the AutoCORDSv2 folder and run the python file named AutoCORDSv2.py, This process should be completed quickly.
 
-A simple usage is "python3 -i input_alignment.fasta -t MSA_fasta --bgfile background.fasta"
+A simple usage is "python3 AutoCORDSv2.py -i input_alignment.fasta -t MSA_fasta --bgfile background.fasta"
 
 ## Dependencies
 
