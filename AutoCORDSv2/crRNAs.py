@@ -26,48 +26,43 @@ def crRNA_score(position_list, conservation_scores):
     return crRNA_seq_score
 
 
-def get_crRNAs(seq, PAM, cl):
+def generate_sequences(rule):
+    replacements = {"N": ['A', 'T', 'C', 'G'], "R": ['A', 'G'], "Y": ['C', 'T'], "M": ['A', 'C'], "K": ['G', 'T'],
+                    "H": ['A', 'C', 'T'], "D": ['A', 'G', 'T'], "B": ['C', 'G', 'T'], "V": ['A', 'C', 'G']}
 
+    def generate_recursive(current, index):
+        # 如果当前索引等于规则长度，说明已经生成了一个完整的字符串
+        if index == len(rule):
+            results.append(current)
+            return
+
+        char = rule[index]
+
+        if char in replacements:
+            for replacement in replacements[char]:
+                generate_recursive(current + replacement, index + 1)
+        else:
+            generate_recursive(current + char, index + 1)
+
+    results = []
+    generate_recursive("", 0)
+    return results
+
+
+def get_crRNAs(seq, PAM, cl, strand):
+
+    pam_list = generate_sequences(PAM)
     crRNAs = []
-    if PAM == "VTTV":
-        pattern = r'[ACG]TT[ACG][ATCG]{}'.format('{' + str(cl) + '}')
-        crRNAs = re.findall(pattern, seq)
 
-    if PAM == "TVTV":
-        pattern = r'T[ACG]T[ACG][ATCG]{}'.format('{' + str(cl) + '}')
-        crRNAs = re.findall(pattern, seq)
+    # search spacer by pam
+    for i in range(0, len(seq)):
+        if seq[i:i + len(PAM)] in pam_list and strand == '-':
+            if i - cl >= 0 and i + len(PAM) < len(seq):
+                crRNAs.append(seq[i - cl: i + len(PAM)])
 
-    if PAM == "TTVN":
-        pattern = r'TT[ACG][ATCG][ATCG]{}'.format('{' + str(cl) + '}')
-        crRNAs = re.findall(pattern, seq)
-
-    if PAM == "TTTV":
-        pattern = r'TTT[ACG][ATCG]{}'.format('{' + str(cl) + '}')
-        crRNAs = re.findall(pattern, seq)
-
-    if PAM == "TTTT":
-        pattern = r'TTTT[ATCG]{}'.format('{' + str(cl) + '}')
-        crRNAs = re.findall(pattern, seq)
-
-    if PAM == "BAAB":
-        pattern = r'[ATCG]{}[TCG]AA[TCG]'.format('{' + str(cl) + '}')
-        crRNAs = re.findall(pattern, seq)
-
-    if PAM == "BABA":
-        pattern = r'[ATCG]{}[TCG]A[TCG]A'.format('{' + str(cl) + '}')
-        crRNAs = re.findall(pattern, seq)
-
-    if PAM == "NBAA":
-        pattern = r'[ATCG]{}[ATCG][TCG]AA'.format('{' + str(cl) + '}')
-        crRNAs = re.findall(pattern, seq)
-
-    if PAM == "BAAA":
-        pattern = r'[ATCG]{}[TCG]AAA'.format('{' + str(cl) + '}')
-        crRNAs = re.findall(pattern, seq)
-
-    if PAM == "AAAA":
-        pattern = r'[ATCG]{}AAAA'.format('{' + str(cl) + '}')
-        crRNAs = re.findall(pattern, seq)
+        if seq[i:i + len(PAM)] in pam_list and strand == '+':
+            if i >= 0 and i + len(PAM) + cl < len(seq):
+                crRNAs.append(seq[i:i + len(PAM) + cl])
 
     crRNA_dict = {}
     for crRNA in crRNAs:
