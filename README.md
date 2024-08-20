@@ -1,5 +1,7 @@
 # AutoCORDSv2
 An automated tool for designing Cas12a crRNA and RPA primers for CORDSv2 (Cas12a-based On-site and Rapid Detection System) Runs on a Linux system.
+
+version 2.1, updated on August 20, 2024.
 # Usage
 Download the AutoCORDSv2 folder and run the python file named AutoCORDSv2.py, This process should be completed quickly.
 
